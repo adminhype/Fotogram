@@ -13,7 +13,7 @@
             rel="stylesheet"
         />
     </head>
-    <body>
+    <body onload="render()">
         <section id="mainPage">
             <header>
                 <img src="./logo/star_01.PNG" alt="" />
@@ -29,11 +29,17 @@
                 <img src="./img/a&o.png" alt="" />
                 <span>DA - ADEM OENCUE</span>
             </footer>
-            <div id="lightbox" class="hidden">
-                <span id="closeBtn">×</span>
+            <div id="" class="lightbox hidden">
+                <span id="closeBtn" onclick="closeLightbox()">x</span>
+                <button id="prevBtn" onclick="prevImg()" class="navBtn">
+                    ←
+                </button>
                 <img id="lightboxImg" src="" alt="" />
+                <script src="./script.js"></script>
+                <button id="nextBtn" onclick="nextImg()" class="navBtn">
+                    →
+                </button>
             </div>
-            <script src="./script.js"></script>
         </section>
     </body>
 </html>

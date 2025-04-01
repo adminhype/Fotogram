@@ -73,6 +73,14 @@ main {
         justify-items: center;
         gap: 10px;
         padding: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     }
 }
 footer {
@@ -108,24 +116,17 @@ footer {
     border: solid 2px rgb(235, 233, 233);
 }
 
-#lightbox {
-    /* display: flex;
+.lightbox {
+    display: flex;
     justify-content: center;
-    align-items: center; */
-    z-index: 1000;
+    align-items: center;
+    z-index: 1001;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
-}
-
-#lightboxImg {
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 30px black;
 }
 
 #closeBtn {
@@ -139,4 +140,23 @@ footer {
 }
 .hidden {
     display: none;
+}
+.navBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+#prevBtn {
+    left: 30px;
+}
+
+#nextBtn {
+    right: 30px;
 }

@@ -1,55 +1,63 @@
-let myImg = [
-    "doktor.png",
-    "gamer.png",
-    "koch.png",
-    "lehrer.png",
-    "maler.png",
-    "pilot.png",
-    "police.png",
-    "rockstar.png",
-    "sanitäter.png",
-    "bauer.png"
+
+// globale variable
+const myImg = [
+    "./img/doktor.png",
+    "./img/gamer.png",
+    "./img/koch.png",
+    "./img/lehrer.png",
+    "./img/maler.png",
+    "./img/pilot.png",
+    "./img/police.png",
+    "./img/rockstar.png",
+    "./img/sanitäter.png",
+    "./img/bauer.png"
 ];
+let currentIndex = 0;
 
-const imgArea = document.getElementById("imgArea");
+// die function render greift nur auf ein element im body
+function render() {
+    //wir sagen der function nimm nur das element mit der id imgArea
+    let contentRef = document.getElementById('imgArea');
+    // löscht den vohanden inhalt (falls da was drin ist)
+    contentRef.innerHTML = "";
 
-// renderImages ersellt für jedes Bild im Array ein Element
-function renderImages() {
-    // ein neues img-element erstellen
-    myImg.forEach((imgName) => {
-        const img = document.createElement("img");
-
-        //pfad zum bild setzen
-        img.src = "./img/" + imgName;
-
-        // barrierefreiheit
-        img.alt = imgName;
-
-        // css klasse für größe & hover hinzufügen
-        img.classList.add("thumb");
-
-        //klick auf image > lightbox
-        img.onclick = function () {
-            showLightBox(img.src);
-        }
-
-        //fügt das img dem bereich imgArea hinzu
-        imgArea.appendChild(img);
-    });
+    // die schleife läuft vom ersten bis zum letzen bild
+    for (let i = 0; i < myImg.length; i++) { //my.Img.length ist die anzahl der bilder im array
+        // mit += fügen wir ein img elemnt pro bild
+        contentRef.innerHTML +=
+            // die klasse erstellen wir für das styling und onclick für die nächste function mit der wir die bilder öffnen
+            `<img class="thumb" src="${myImg[i]}" onclick="openLightbox(${i})">`;
+    }
 }
 
-// lightbox anzeigen + großes bild hinzufügen
-function showLightBox(imgSrc) {
-
-    //greift auf die elemente im html zu 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg")
-
-    // gleicher pfad wie die kleinen bilder 
-    lightboxImg.src = imgSrc;
-
-    //entfernt hidden damit lightbox sichtbar ist 
-    lightbox.classList.remove("hidden")
+function openLightbox(index) {
+    //position merken des angeklickten index elements um später vor- und zurück zu blättern
+    currentIndex = index;
+    // greifen in das html ein um das passende bild anzuzeigen
+    document.getElementById('lightboxImg').src = myImg[index];
+    // wir brauchen die 0 um auf das erste element zugreifen
+    document.getElementsByClassName('lightbox')[0].classList.remove('hidden');
 }
-//bild beim laden der seite rendern
-renderImages();
+
+function closeLightbox() {
+    document.getElementsByClassName('lightbox')[0].classList.add('hidden');
+}
+
+function nextImg() {
+    //zeige das nächste bild im array
+    currentIndex++;
+    // wir springen zum ersten bild wenn wir am ende der liste sind 
+    if (currentIndex >= myImg.length) {
+        currentIndex = 0;
+    }
+    // dann setzten wir die openlightbox function um das bild neu zu setzen
+    openLightbox(currentIndex);
+}
+
+function prevImg() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = myImg.length - 1;
+    }
+    openLightbox(currentIndex);
+}
