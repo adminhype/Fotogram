@@ -129,6 +129,11 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+id ? #lightboxImg {
+    height: 575px;
+    width: 575px;
+}
+
 #closeBtn {
     position: absolute;
     top: 30px;
@@ -136,7 +141,6 @@ footer {
     font-size: 2.5rem;
     color: white;
     cursor: pointer;
-    border: 2px solid yellow;
 }
 .hidden {
     display: none;
@@ -147,7 +151,7 @@ footer {
     transform: translateY(-50%);
     font-size: 2rem;
     background: none;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
     z-index: 1100;
