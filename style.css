@@ -21,7 +21,6 @@ header {
 }
 header img {
     height: 64px;
-    width: auto;
     cursor: pointer;
 }
 @media (max-width: 375px) {
@@ -72,7 +71,7 @@ main {
     #imgArea {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(140px, auto));
-        justify-items: center;
+        justify-content: center;
         gap: 10px;
         padding: 20px;
 
@@ -132,25 +131,41 @@ footer {
     height: 100dvh;
     background-color: rgba(0, 0, 0, 0.849);
 }
+
 .lightBoxBackground {
     position: absolute;
-    width: 80%;
-    height: 80%;
+    width: 100vw;
+    height: 80vh;
     background: radial-gradient(
         circle,
         rgba(255, 255, 255, 0.1),
-        rgba(0, 0, 0, 0.3)
+        rgba(187, 181, 181, 0.3)
     );
     border-radius: 20px;
     backdrop-filter: blur(10px);
     cursor: pointer;
 }
-
-#imgNames {
-    padding: 24px;
-    font-size: 32px;
+@media (max-width: 350px) {
+    .lightBoxBackground {
+        height: 100vh;
+    }
 }
 
+#imgNames {
+    padding: 0 12px 24px 12px;
+    font-size: 32px;
+    transition: transform 0.3s ease;
+}
+#imgNames:hover {
+    color: #3a001e;
+    transform: rotate(-1deg);
+}
+
+@media (max-width: 375px) {
+    #imgNames {
+        font-size: 18px;
+    }
+}
 #lightBoxContent {
     display: flex;
     align-items: center;
@@ -158,8 +173,8 @@ footer {
     gap: 20px;
 }
 #lightboxImg {
-    height: 575px;
-    width: auto;
+    max-width: 60vw;
+    max-height: 60vh;
     border-radius: 10px;
 }
 #closeBtn {
@@ -177,13 +192,13 @@ footer {
     display: none;
 }
 
-/* https://freefrontend.com/css-arrows/ ???*/
+/* https://freefrontend.com/css-arrows/*/
 .navBtn {
     background: none;
     border: none;
     padding: 0;
     position: relative;
-    width: 60px;
+    width: 20px;
     height: 60px;
     cursor: pointer;
 
@@ -196,6 +211,13 @@ footer {
         transform: translateX(-50%) translateY(-50%);
         transition: transform 0.1s;
         width: 50px;
+    }
+
+    @media (max-width: 375px) {
+        .navBtn .arrow {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     .arrow-top,
