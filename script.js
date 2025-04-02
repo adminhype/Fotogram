@@ -1,30 +1,32 @@
 
 // globale variable
 const myImg = [
-    "./img/doktor.png",
-    "./img/gamer.png",
-    "./img/koch.png",
-    "./img/lehrer.png",
-    "./img/maler.png",
-    "./img/pilot.png",
-    "./img/police.png",
-    "./img/rockstar.png",
-    "./img/sanitäter.png",
-    "./img/bauer.png",
+    "./img/Aquablume.jpg",
+    "./img/Aschewald.jpg",
+    "./img/Bibliothek-Arkania.jpg",
+    "./img/Himmelsarchipel-Astraia.jpg",
+    "./img/Karamell-Ozeanien.jpg",
+    "./img/Mondlicht-Torii.jpg",
+    "./img/Nebeltal-der-Geister.jpg",
+    "./img/Neo-Kyoto-2099.jpg",
+    "./img/Robo-Ranch-9X.jpg",
+    "./img/Sakura-Himmelreich.jpg",
+    "./img/Tempel-der-Zeitlosen.jpg"
 ];
 
 
 const myNames = [
-    "Doktor",
-    "Gamer",
-    "Koch",
-    "Lehrer",
-    "Maler",
-    "Pilot",
-    "Polizist",
-    "Rockstar",
-    "Sanitäter",
-    "Bauer"
+    "Aquablume",
+    "Aschewald der Drachen",
+    "Bibliothek Arkania",
+    "Himmelsarchipel Astraia",
+    "Karamell-Ozeanien",
+    "Mondlicht-Torii",
+    "Nebeltal der Geister",
+    "Neo-Kyoto 2099",
+    "Robo-Ranch 9X",
+    "Sakura-Himmelreich",
+    "Tempel der Zeitlosen"
 ];
 let currentIndex = 0;
 
