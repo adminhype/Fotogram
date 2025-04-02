@@ -10,7 +10,21 @@ const myImg = [
     "./img/police.png",
     "./img/rockstar.png",
     "./img/sanitäter.png",
-    "./img/bauer.png"
+    "./img/bauer.png",
+];
+
+
+const myNames = [
+    "Doktor",
+    "Gamer",
+    "Koch",
+    "Lehrer",
+    "Maler",
+    "Pilot",
+    "Polizist",
+    "Rockstar",
+    "Sanitäter",
+    "Bauer"
 ];
 let currentIndex = 0;
 
@@ -35,6 +49,8 @@ function openLightbox(index) {
     currentIndex = index;
     // greifen in das html ein um das passende bild anzuzeigen
     document.getElementById('lightboxImg').src = myImg[index];
+    // das selbe mit dem namen
+    document.getElementById('imgNames').innerText = myNames[index];
     // wir brauchen die 0 um auf das erste element zugreifen
     document.getElementsByClassName('lightbox')[0].classList.remove('hidden');
 }

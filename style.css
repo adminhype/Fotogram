@@ -3,9 +3,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
+    text-decoration: none;
 }
 body {
-    font-family: "Rampart One", sans-serif;
+    font-family: "Lato", sans-serif;
     background-color: #ede9d0;
     color: white;
 }
@@ -39,8 +41,8 @@ main {
         display: block;
         justify-content: center;
         text-align: center;
-        padding: 72px;
-        font-size: 64px;
+        padding: 48px;
+        font-size: 48px;
         margin-bottom: 64px;
     }
     .mobileTitle {
@@ -120,20 +122,45 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 1001;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.849);
+}
+.lightBoxBackground {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 0, 0, 0.3)
+    );
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
 }
 
-id ? #lightboxImg {
+#imgNames {
+    padding: 24px;
+    font-size: 32px;
+}
+
+#lightBoxContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#lightboxImg {
     height: 575px;
     width: 575px;
+    border-radius: 10px;
 }
-
 #closeBtn {
     position: absolute;
     top: 30px;
@@ -142,25 +169,110 @@ id ? #lightboxImg {
     color: white;
     cursor: pointer;
 }
+#closeBtn:hover {
+    color: rgba(255, 255, 255, 0.24);
+}
 .hidden {
     display: none;
 }
+
+/* https://freefrontend.com/css-arrows/ ???*/
 .navBtn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
     background: none;
-    color: rgb(255, 255, 255);
     border: none;
+    padding: 0;
+    position: relative;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    z-index: 1100;
-}
 
-#prevBtn {
-    left: 30px;
-}
+    .arrow {
+        cursor: pointer;
+        height: 60px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        transition: transform 0.1s;
+        width: 50px;
+    }
 
-#nextBtn {
-    right: 30px;
+    .arrow-top,
+    .arrow-bottom {
+        background-color: #666;
+        height: 4px;
+        left: -5px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+
+    .arrow-top:after,
+    .arrow-bottom:after {
+        background-color: #fff;
+        content: "";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transition: all 0.15s;
+    }
+
+    .arrow-top {
+        transform: rotate(45deg);
+        transform-origin: bottom right;
+    }
+
+    .arrow-top:after {
+        left: 100%;
+        right: 0;
+        transition-delay: 0s;
+    }
+
+    .arrow-bottom {
+        transform: rotate(-45deg);
+        transform-origin: top right;
+    }
+
+    .arrow-bottom:after {
+        left: 0;
+        right: 100%;
+        transition-delay: 0.15s;
+    }
+
+    .arrow:hover .arrow-top:after {
+        left: 0;
+        transition-delay: 0.15s;
+    }
+
+    .arrow:hover .arrow-bottom:after {
+        right: 0;
+        transition-delay: 0s;
+    }
+
+    .arrow:active {
+        transform: translateX(-50%) translateY(-50%) scale(0.9);
+    }
+    .arrow-left .arrow-top {
+        transform: rotate(-45deg);
+        transform-origin: bottom left;
+    }
+
+    .arrow-left .arrow-bottom {
+        transform: rotate(45deg);
+        transform-origin: top left;
+    }
+
+    #prevBtn {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #nextBtn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }

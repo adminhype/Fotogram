@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
             rel="stylesheet"
         />
     </head>
@@ -20,8 +20,8 @@
             </header>
 
             <main>
-                <h1 class="desktopTitle">Anime Star</h1>
-                <h1 class="mobileTitle">Animes</h1>
+                <h1 class="desktopTitle">Anime Galerie</h1>
+                <h1 class="mobileTitle">Galerie</h1>
 
                 <section id="imgArea"></section>
             </main>
@@ -30,17 +30,25 @@
                 <span>DA - ADEM OENCUE</span>
             </footer>
             <div id="" class="lightbox hidden">
+                <div onclick="closeLightbox()" class="lightBoxBackground"></div>
                 <span id="closeBtn" onclick="closeLightbox()">x</span>
-                <button id="prevBtn" onclick="prevImg()" class="navBtn">
-                    ←
-                </button>
-                <div>
+                <p id="imgNames"></p>
+                <div id="lightBoxContent">
+                    <button id="prevBtn" onclick="prevImg()" class="navBtn">
+                        <div class="arrow arrow-left">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </button>
                     <img id="lightboxImg" src="" alt="" />
+                    <script src="./script.js"></script>
+                    <button id="nextBtn" onclick="nextImg()" class="navBtn">
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </button>
                 </div>
-                <script src="./script.js"></script>
-                <button id="nextBtn" onclick="nextImg()" class="navBtn">
-                    →
-                </button>
             </div>
         </section>
     </body>
