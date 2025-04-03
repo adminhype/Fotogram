@@ -29,8 +29,12 @@
                 <img src="./logo/a_o.png" alt="" />
                 <span>DA - ADEM OENCUE</span>
             </footer>
-            <div id="" class="lightbox hidden">
-                <div onclick="closeLightbox()" class="lightBoxBackground"></div>
+            <!-- lightbox klasse aus class entfernt, in die id eingefügt -->
+            <div id="lightBox">
+                <div
+                    onclick="event.stopPropagation(); closeLightbox()"
+                    class="lightBoxBackground"
+                ></div>
                 <span id="closeBtn" onclick="closeLightbox()">x</span>
                 <p id="imgNames"></p>
                 <div id="lightBoxContent">
@@ -41,7 +45,6 @@
                         </div>
                     </button>
                     <img id="lightboxImg" src="" alt="" />
-                    <script src="./script.js"></script>
                     <button id="nextBtn" onclick="nextImg()" class="navBtn">
                         <div class="arrow">
                             <div class="arrow-top"></div>
@@ -51,5 +54,6 @@
                 </div>
             </div>
         </section>
+        <script src="./script.js"></script>
     </body>
 </html>

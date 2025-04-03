@@ -53,12 +53,13 @@ function openLightbox(index) {
     document.getElementById('lightboxImg').src = myImg[index];
     // das selbe mit dem namen
     document.getElementById('imgNames').innerText = myNames[index];
-    // wir brauchen die 0 um auf das erste element zugreifen
-    document.getElementsByClassName('lightbox')[0].classList.remove('hidden');
-}
 
+    //getelementbyclass zu id geändert um direkt auf das element in der id zugreifen
+    document.getElementById('lightBox').classList.add('showBox');
+}
+// same hier
 function closeLightbox() {
-    document.getElementsByClassName('lightbox')[0].classList.add('hidden');
+    document.getElementById('lightBox').classList.remove('showBox');
 }
 
 function nextImg() {

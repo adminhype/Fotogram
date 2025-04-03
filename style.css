@@ -118,8 +118,9 @@ footer {
     border: solid 2px rgb(235, 233, 233);
 }
 
-.lightbox {
-    display: flex;
+/* display flex zu none geändert weil hidden nicht greift */
+#lightBox {
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -130,6 +131,9 @@ footer {
     width: 100%;
     height: 100dvh;
     background-color: rgba(0, 0, 0, 0.849);
+}
+#lightBox.showBox {
+    display: flex;
 }
 
 .lightBoxBackground {
@@ -146,7 +150,7 @@ footer {
     cursor: pointer;
 }
 @media (max-width: 350px) {
-    .lightBoxBackground {
+    .∟BoxBackground {
         height: 100vh;
     }
 }
@@ -187,9 +191,6 @@ footer {
 }
 #closeBtn:hover {
     color: rgba(255, 255, 255, 0.24);
-}
-.hidden {
-    display: none;
 }
 
 /* https://freefrontend.com/css-arrows/*/
